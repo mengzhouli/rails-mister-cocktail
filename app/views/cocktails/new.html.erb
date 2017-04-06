@@ -1,0 +1,15 @@
+<% content_for(:title_tag) do %>
+  New Cocktail
+<% end %>
+
+<h1>New Cocktail</h1>
+
+<%= simple_form_for(@cocktail) do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :name, label: "Cocktail Name", placeholder: "Grapefruit Fizz" %>
+  <%= f.button :submit, class: "btn btn-success" %>
+<% end %>
+<hr>
+
+<%= link_to "Go Back", cocktails_path, class: "btn btn-danger" %>
+

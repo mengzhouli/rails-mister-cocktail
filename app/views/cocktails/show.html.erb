@@ -1,0 +1,12 @@
+<% content_for(:title_tag) do %>
+  <%= @cocktail.name %>
+<% end %>
+
+<h1><%= @cocktail.name %></h1>
+<hr>
+<%= link_to "Add an ingredient", new_cocktail_dose_path(@cocktail), class: "btn btn-info" %>
+<h3>Ingredients List</h3>
+
+
+<hr>
+<%= link_to "Go Back", cocktails_path, class: "btn btn-danger" %>
