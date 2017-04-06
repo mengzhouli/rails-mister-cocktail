@@ -16,3 +16,10 @@ thing["drinks"].each do |d|
   Ingredient.create(name: d["strIngredient1"])
 end
 
+drinks = ["Negroni", "Aperol Spritz", "Long Island Ice Tea", "Margarita", "Hong Kong Nocturne", "The Somelier", "Park Sangria", "Manhattan", "Cuba Libre"]
+
+drinks.each do |d|
+  Cocktail.create(name: d)
+end
+
+
