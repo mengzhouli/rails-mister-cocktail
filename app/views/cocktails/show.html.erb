@@ -4,7 +4,6 @@
 
 <h1><%= @cocktail.name %></h1>
 <hr>
-<%= link_to "Add an ingredient", new_cocktail_dose_path(@cocktail), class: "btn btn-info" %>
 <h3>Ingredients List</h3>
 <ul class="list-unstyled">
   <% @doses.each do |dose|%>
@@ -14,6 +13,16 @@
   </li>
   <% end %>
 </ul>
+<hr>
+<h4>Add a dose to your cocktail</h4>
+
+
+<%= simple_form_for [@cocktail, @dose] do |f| %>
+  <%= f.error_notification %>
+  <%= f.input :description, label: "Volume and Instruction", placeholder: "Add 1/4 oz of:" %>
+  <%= f.association :ingredient, collection: Ingredient.all %>
+  <%= f.button :submit, class: "btn btn-success" %>
+<% end %>
 
 <hr>
 <%= link_to "Go Back", cocktails_path, class: "btn btn-danger" %>
