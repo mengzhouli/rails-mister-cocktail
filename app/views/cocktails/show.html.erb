@@ -23,6 +23,11 @@
   <%= f.association :ingredient, collection: Ingredient.all %>
   <%= f.button :submit, class: "btn btn-success" %>
 <% end %>
+<hr>
+
+<% @cocktail.photos.each do |photo| %>
+  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+<% end %>
 
 <hr>
 <%= link_to "Go Back", cocktails_path, class: "btn btn-danger" %>
