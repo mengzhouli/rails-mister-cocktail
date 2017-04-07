@@ -2,32 +2,39 @@
   <%= @cocktail.name %>
 <% end %>
 
-<h1><%= @cocktail.name %></h1>
-<hr>
-<h3>Ingredients List</h3>
-<ul class="list-unstyled">
-  <% @doses.each do |dose|%>
-  <li>
-    <%= dose.description %>: <%= dose.ingredient.name %>
-    <%= link_to "Delete", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs" %>
-  </li>
-  <% end %>
-</ul>
-<hr>
-<h4>Add a dose to your cocktail</h4>
+<div class="wrapper">
+  <div class="container text-center">
+    <h1><%= @cocktail.name %></h1>
+    <hr>
+    <h3>Ingredients List</h3>
+    <ul class="list-unstyled">
+      <% @doses.each do |dose|%>
+      <li>
+        <%= dose.description %>: <%= dose.ingredient.name %>
+        <%= link_to "Delete", dose_path(dose), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs" %>
+      </li>
+      <% end %>
+    </ul>
+    <hr>
+    <h4>Add a dose to your cocktail</h4>
 
 
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.error_notification %>
-  <%= f.input :description, label: "Volume and Instruction", placeholder: "Add 1/4 oz of:" %>
-  <%= f.association :ingredient, collection: Ingredient.all %>
-  <%= f.button :submit, class: "btn btn-success" %>
-<% end %>
-<hr>
+    <%= simple_form_for [@cocktail, @dose] do |f| %>
+      <%= f.error_notification %>
+      <%= f.input :description, label: "Volume and Instruction", placeholder: "Add 1/4 oz of:" %>
+      <%= f.association :ingredient, collection: Ingredient.all %>
+      <%= f.button :submit, class: "btn btn-success" %>
+    <% end %>
+    <hr>
 
-<% @cocktail.photos.each do |photo| %>
-  <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
-<% end %>
+    <% @cocktail.photos.each do |photo| %>
+      <%= cl_image_tag photo.path, width: 300, height: 200, crop: :fill %>
+    <% end %>
 
-<hr>
-<%= link_to "Go Back", cocktails_path, class: "btn btn-danger" %>
+    <hr>
+    <%= link_to "Edit this cocktail and upload a photo", edit_cocktail_path(@cocktail), class: "btn btn-info" %>
+    <hr>
+    <%= link_to "Go Back", cocktails_path, class: "btn btn-danger" %>
+  </div>
+</div>
+

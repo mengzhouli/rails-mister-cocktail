@@ -1,0 +1,18 @@
+<% content_for(:title_tag) do %>
+  Edit your <%= @cocktail.name %>
+<% end %>
+
+<div class="wrapper">
+  <div class="container text-center">
+    <h1>Update <%= @cocktail.name%></h1>
+
+    <%= render 'form', cocktail: @cocktail %>
+    <hr>
+
+    <%= link_to "Go Back to the Cocktail", cocktail_path(@cocktail), class: "btn btn-info" %>
+    <hr>
+    <%= link_to "Go Back to Main", cocktails_path, class: "btn btn-danger" %>
+  </div>
+</div>
+
+
