@@ -1,5 +1,5 @@
 <% if cocktail.photos.empty? %>
-  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_path('cocktail_bg.jpeg') %>);">
+  <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image-url('cocktail_bg.jpeg') %>);">
 <% else %>
   <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(
     <%= cl_image_path cocktail.photos[0].path, width: 300, height: 200, crop: :fill %>);">
